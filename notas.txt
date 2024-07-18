@@ -1,0 +1,106 @@
+// db.js
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/mi-base-de-datos', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// models.js
+const mongoose = require('mongoose');
+
+const productoSchema = new mongoose.Schema({
+  nombre: String,
+  precio: Number,
+});
+
+const Producto = mongoose.model('Producto', productoSchema);
+
+module.exports = Producto;
+
+// app.js
+const express = require('express');
+const app = express();
+const Producto = require('./models');
+
+app.get('/productos', async (req, res) => {
+  try {
+    const productos = await Producto.find();
+    res.json(productos);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener los productos' });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Servidor escuchando en el puerto 3000');
+});
+
+
+
+
+ HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+    <title>Calificación de Videojuego</title>
+</head>
+<body>
+    <h1>Califica el Videojuego</h1>
+    <p>Cual es tu caificacion:</p>
+    <div class="stars" onclick="rateGame(1)">★</div>
+    <div class="stars" onclick="rateGame(2)">★</div>
+    <div class="stars" onclick="rateGame(3)">★</div>
+    <div class="stars" onclick="rateGame(4)">★</div>
+    <div class="stars" onclick="rateGame(5)">★</div>
+
+    <p>Calificación actual: <span id="currentRating">0</span></p>
+
+    <canvas id="gameRatingsChart"></canvas>
+
+
+    <script src="Script.js"></script>
+</body>
+</html>
+
+JS
+let rating = 0;
+
+function rateGame(stars) {
+    rating = stars;
+    document.getElementById('currentRating').textContent = rating;
+    // Aquí puedes enviar la calificación al servidor o almacenarla en una base de datos
+}
+
+const gameLabels = ["Juego A", "Juego B", "Juego C"];
+const gameRatings = [4.5, 3.8, 4.2];
+
+const ctx = document.getElementById("gameRatingsChart").getContext("2d");
+new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: gameLabels,
+    datasets: [{
+      label: "Calificación",
+      data: gameRatings,
+      backgroundColor: "rgba(54, 162, 235, 0.6)",
+      borderColor: "rgba(54, 162, 235, 1)",
+      borderWidth: 1,
+    }],
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 5,
+      },
+    },
+  },
+});
+
+
+Categoria
+clasificacion

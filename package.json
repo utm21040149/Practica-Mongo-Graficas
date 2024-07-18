@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mongoose": "^8.5.1"
+  },
+  "name": "pw-votacion",
+  "version": "1.0.0",
+  "main": "conexion.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

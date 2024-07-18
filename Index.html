@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificación de Videojuegos</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <h1>Califica tus videojuegos favoritos</h1>
+    <form id="gameRatingForm">
+        <label for="gameSelect">Selecciona un videojuego:</label>
+        <select id="gameSelect">
+            <option value="juego1">Halo 2</option>
+            <option value="juego2">Batman Arkam</option>
+            <option value="juego3">Halo Reach</option>
+            <option value="juego4">Gears of War</option>
+            <option value="juego5">Assasin's Creed</option>
+            <option value="juego6">Wuathering Waves</option>
+            <option value="juego7">Fifa 24</option>
+            <option value="juego8">Enlisted</option>
+            <option value="juego9">Head of lose</option>
+            <option value="juego10">Elden Ring</option>
+        </select>
+        <label for="ratingInput">Calificación (1-5):</label>
+        <input type="number" id="ratingInput" min="1" max="5">
+        <button type="button" onclick="guardarCalificacion()">Guardar</button>
+    </form>
+    <p>Calificación actual: <span id="currentRating">N/A</span></p>
+
+    <br>
+
+    <h1>Graficas de Puntuación</h1>
+    <canvas id="scoreChart" width="500" height="400"></canvas>
+
+    <script src="Script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #aa71eb;
+    margin: 0;
+    padding: 0;
+
+}
+
+form {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+}
+
+
+select,
+input[type="number"],
+button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 80px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #0011ff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 80px;
+}
+
+button:hover {
+    background-color: #6739d4;
+}
